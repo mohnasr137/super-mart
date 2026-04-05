@@ -2,6 +2,8 @@
 import User from "../../models/user.js";
 import axios from "axios";
 
+const url = process.env.URL;
+
 // controllers
 const getCart = async (req, res) => {
   try {
@@ -49,7 +51,7 @@ const addCart = async (req, res) => {
     }
 
     const request = await axios.get(
-      `http://localhost:5000/api/v1/home/products/${productId}`,
+      `${url}/api/v1/home/products/${productId}`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -94,7 +96,7 @@ const addFavorite = async (req, res) => {
     }
 
     const request = await axios.get(
-      `http://localhost:5000/api/v1/home/products/${productId}`,
+      `${url}/api/v1/home/products/${productId}`,
       {
         headers: {
           "Content-Type": "application/json",
